@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/styles.scss"],"names":[],"mappings":"AAAA,iBAGE,SAAU,CACV,QAAS","file":"main.59afba65.chunk.css","sourcesContent":["*,\r\n*::before,\r\n*::after {\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n"]}
