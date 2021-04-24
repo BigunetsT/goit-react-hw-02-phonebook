@@ -1,0 +1,21 @@
+.phoneNumber {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.contactItem {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+.contactDeleteBtn {
+  padding: 2px 5px;
+  background-color: white;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    background-color: #94c0f9;
+  }
+}

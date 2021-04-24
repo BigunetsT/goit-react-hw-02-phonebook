@@ -21,12 +21,12 @@ class App extends Component {
     const newContact = {
       id: uuidv4(),
       name: data.name,
-      number: data.number,
+      number: editNumber(data.number),
     };
     contacts
       .map(contact => contact.name.toLowerCase())
       .includes(data.name.toLowerCase())
-      ? alert(`${data.name} is already in contacts`)
+      ? alert(`${data.name} is already in contacts.`)
       : this.setState(prevState => ({
           contacts: [...prevState.contacts, newContact],
         }));
@@ -46,19 +46,24 @@ class App extends Component {
   changeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
   };
+
   render() {
     const { filter } = this.state;
     const visibleContacts = this.getVisibledContacts();
     return (
-      <>
-        <h1>Phonebook</h1>
+      <div className="container">
+        <h1 className="title">Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
-        <h2>Contacts</h2>
+        <h2 className="title">Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList contacts={visibleContacts} onDelete={this.deleteContact} />
-      </>
+      </div>
     );
   }
 }
-
+function editNumber(string) {
+  return (
+    string.slice(0, 3) + '-' + string.slice(3, 5) + '-' + string.slice(5, 7)
+  );
+}
 export default App;
