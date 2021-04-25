@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './ContactForm.module.scss';
+
 const INITIAL_STATE = {
   name: '',
   number: '',
 };
 class ContactForm extends Component {
+  static propTypes = {
+    INITIAL_STATE: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }),
+    onSubmit: PropTypes.func,
+  };
   state = { ...INITIAL_STATE };
   handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -45,7 +54,7 @@ class ContactForm extends Component {
             className={styles.input}
             type="tel"
             name="number"
-            placeholder="input number"
+            placeholder="XXX-XX-XX"
             value={number}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"

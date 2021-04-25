@@ -1,3 +1,5 @@
+@import '../../styles/shared.scss';
+
 .filter {
   display: flex;
   flex-direction: column;
@@ -17,9 +19,11 @@
   padding: 2px 5px;
   max-width: 250px;
   outline: none;
-  border: 1px solid #c7c7c7;
+  border: 1px solid var(--main-border-color);
   border-radius: 5px;
   &:focus {
-    border: 3px solid #94c0f9;
+    border: 3px solid var(--second-border-color);
+    box-shadow: 0 0 3px 0 var(--second-border-color) inset,
+      0 0 3px 3px var(--second-border-color);
   }
 }
